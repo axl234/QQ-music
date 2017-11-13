@@ -2,6 +2,7 @@
   <div class="recommend" ref="recommend">
     <scroll ref="scroll" class="recommend-content" :data="discList">
       <div>
+        <!-- 判断有数据之后再做slider渲染 -->
         <div v-if="recommends.length" class="slider-wrapper" ref="sliderWrapper">
           <slider>
             <div v-for="item in recommends">
@@ -76,6 +77,7 @@
         this.setDisc(item)
       },
       _getRecommend() {
+        //获取banner图的数据
         getRecommend().then((res) => {
           if (res.code === ERR_OK) {
             this.recommends = res.data.slider

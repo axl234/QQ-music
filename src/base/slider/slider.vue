@@ -68,6 +68,7 @@
     },
     methods: {
       _setSliderWidth(isResize) {
+        //通过$refs.sliderGroup获取demo元素的数量
         this.children = this.$refs.sliderGroup.children
 
         let width = 0
@@ -80,8 +81,10 @@
           width += sliderWidth
         }
         if (this.loop && !isResize) {
+          //如果循坏则需要多克隆一份dom
           width += 2 * sliderWidth
         }
+        //总宽度设置
         this.$refs.sliderGroup.style.width = width + 'px'
       },
       _initSlider() {
@@ -98,6 +101,7 @@
         this.slider.on('scrollEnd', () => {
           let pageIndex = this.slider.getCurrentPage().pageX
           if (this.loop) {
+            //循环模式下 会多一个dom拷贝
             pageIndex -= 1
           }
           this.currentPageIndex = pageIndex

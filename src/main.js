@@ -1,3 +1,4 @@
+//引入babel处理转换es6 api
 import 'babel-polyfill'
 import Vue from 'vue'
 import App from './App'

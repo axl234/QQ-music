@@ -4,7 +4,7 @@ import axios from 'axios'
 
 export function getRecommend() {
   const url = 'https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg'
-
+  //把两个对象合并给data，使data拥有基本参数和指定的三个参数
   const data = Object.assign({}, commonParams, {
     platform: 'h5',
     uin: 0,
